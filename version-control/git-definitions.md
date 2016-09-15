@@ -8,7 +8,7 @@ Version control is saving a project at different stages of completion. It's usef
 
 * What is a branch and why would you use one?
 
-A branch is a continuation of the original project that further develops another feature or goes in another direction. You would use one to keep the integrity of the original basis until the new feature is completely finished.
+A branch is a continuation of the original project that further develops another feature or goes in another direction. Changes to a feature branch are independent from the master so you would use one to keep the integrity of the original until the new feature is completely finished.
 
 * What is a commit? What makes a good commit message?
 
