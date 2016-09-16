@@ -16,4 +16,4 @@ A commit is a savepoint where you save your work and update your progress. A goo
 
 * What is a merge conflict?
 
-A merge conflict is when the contents of two branches that are attempting to merge are incompatible with one another.
+A merge conflict is when the contents of two branches that are attempting to merge are incompatible with one another. Git will notify you of a merge conflict so you can reseolve it.
