@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice Form</title>
+</head>
+<body>
+	<form action="success.html" method="post">
+		<div>
+			<label>Select Ice Cream Flavor:</label>
+			<select name="flavor">
+				<option value="cookiesncream">Cookies 'n Cream</option>
+				<option value="mintchip">Mint Chip</option>
+				<option value="cookiedough">Cookie Dough</option>
+			</select>
+		</div>
+		<div>
+			<label>Type in which toppings you want:<textarea name="toppinginstructions"></textarea></label>
+		</div>
+		<div>
+			<input type="checkbox" name="cb-checked" value="agree">
+			"I am not allergic to dairy"
+		</div>
+		<div>
+			<label>Name:</label>
+			<input type="text" name="name">
+		</div>
+		<div>
+			<label>Email (receive our newsletter):</label>
+			<input type="email" name="email">
+		</div>
+		<div>
+			<label>When's your birthday? (You get free ice cream)</label>
+			<input type="date" name="birthday">
+		</div>
+		<button type="submit">Submit Order</button>
+	</form>
+</body>
+</html>
