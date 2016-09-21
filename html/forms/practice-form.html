@@ -5,8 +5,20 @@
 </head>
 <body>
 	<form action="success.html" method="post">
+		<fieldset>
+		<div>
+			<label>Name:</label>
+			<input type="text" name="name">
+		</div>
+		<div>
+			<label>Email:</label>
+			<input type="email" name="email">
+		</div>
+		</fieldset>
+		<fieldset>
 		<div>
 			<label>Select Ice Cream Flavor:</label>
+			<br />
 			<select name="flavor">
 				<option value="cookiesncream">Cookies 'n Cream</option>
 				<option value="mintchip">Mint Chip</option>
@@ -14,24 +26,21 @@
 			</select>
 		</div>
 		<div>
-			<label>Type in which toppings you want:<textarea name="toppinginstructions"></textarea></label>
+			<label>Type in which toppings you want:
+			<br/>
+			<textarea name="toppinginstructions"></textarea></label>
+		</div>
+		</fieldset>
+		<fieldset>
+		<div>
+			<label>When's your next birthday? (You get free ice cream)</label>
+			<br/><input type="date" name="birthday">
 		</div>
 		<div>
 			<input type="checkbox" name="cb-checked" value="agree">
-			"I am not allergic to dairy"
+			I am not allergic to dairy
 		</div>
-		<div>
-			<label>Name:</label>
-			<input type="text" name="name">
-		</div>
-		<div>
-			<label>Email (receive our newsletter):</label>
-			<input type="email" name="email">
-		</div>
-		<div>
-			<label>When's your birthday? (You get free ice cream)</label>
-			<input type="date" name="birthday">
-		</div>
+		</fieldset>
 		<button type="submit">Submit Order</button>
 	</form>
 </body>
