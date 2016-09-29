@@ -1,3 +1,7 @@
+body {
+  max-width: 960px;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -9,9 +13,23 @@ cite {
   margin-top: 10px;
 }
 
+#external-links {
+  width: 20%;
+  min-width: 200px;
+  display: inline-block;
+  vertical-align: top;
+} 
+
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
+}
+
+main {
+  width: 70%;
+  min-width: 600px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 /* you're welcome to edit the
@@ -29,4 +47,10 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
 }
