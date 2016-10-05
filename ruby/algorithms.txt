@@ -1,0 +1,12 @@
+# Elevator
+
+* Receive instructions on which floor you are on, and which floor to go to
+* If your destination floor is above the one you are on
+	- Press the button for going up
+* Else
+	- Press the button for going down
+* Enter the elevator when it arrives
+* Press the button by the door for which floor level is your destination. 
+*Once the elevator reaches your destination level, exit the elevator
+
+
