@@ -1,0 +1,34 @@
+# Elevator
+
+* Receive instructions on which floor you are on, and which floor to go to
+* If your destination floor is above the one you are on
+	- Press the button for going up
+* Else
+	- Press the button for going down
+* Enter the elevator when it arrives
+* Press the button by the door for which floor level is your destination. 
+*Once the elevator reaches your destination level, exit the elevator
+
+
+# Laundry
+
+* Check if laundry basket is full
+	- If yes, continue to start laundry
+	- If no, come back another day
+* Bring laundry basket over to washing machine
+* Put clothes in machine until it reaches the fill line
+* Select cycle based on color
+	* If it is a load of light colors, select hot temp
+	* Else wash select cold temp
+* Push button to start, wait for timer
+* Once timer goes off, dry clothes appropriately
+	- If needs to air dry and room to dry on top of washer/dryer, lay on top to dry
+	- If needs to air dry but no room on top of washer/dryer, hang dry
+	- Else put in dryer
+* Set dryer cycle appropriately
+	- If normal clothes, select normal cycle
+	- If bedding or bulky, select bukly/bedding cycle
+* Once timer goes off for dryer, remove clothes and put inhamper to be put away
+	- If clothes are in danger of wrinkling, hang in closet
+	- Else, fold and put in dresser
+	
