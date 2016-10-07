@@ -50,3 +50,20 @@ puts "Age: #{age}"
 puts "Birthyear: #{birthyear}"
 puts "Likes Garlic Bread? #{garlic}"
 puts "Wants Health Insurance? #{health_ins}"
+
+is_vampire = nil
+
+
+if (age == 2016 - birthyear || age + 1== 2016 - birthyear) && (garlic || health_ins) && !(name == 'Drake Cula' || name == 'Tu Fang')
+	is_vampire = 'Probably not a vampire.'
+elsif !(age == 2016 - birthyear || age + 1 == 2016 - birthyear) && (!garlic && health_ins) || (garlic && !health_ins) && !(name == 'Drake Cula' || name == 'Tu Fang')
+	is_vampire = 'Probably a vampire.'
+elsif !(age == 2016 - birthyear || age + 1 == 2016 - birthyear) && (!garlic && !health_ins) && !(name == 'Drake Cula' || name == 'Tu Fang')
+	is_vampire = 'Almost certainly a vampire.'
+elsif name == 'Drake Cula' || name == 'Tu Fang'
+	is_vampire = 'Definitely a vampire.'
+else
+	is_vampire = "Results inconclusive"
+end
+
+puts is_vampire
