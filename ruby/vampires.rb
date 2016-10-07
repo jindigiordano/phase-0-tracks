@@ -20,7 +20,7 @@ garlic = nil
 until garlic == "y" || garlic == "n"
 	puts "Our company cafeteria serves garlic bread. Should we order some for you? (y/n)"
 	garlic = gets.chomp
-	if garlic != "y" || garlic !="n"
+	if garlic != "y" && garlic !="n"
 		puts "Please enter 'y' or 'n'"
 		garlic = gets.chomp
 	end
@@ -34,7 +34,7 @@ health_ins = nil
 until health_ins == "y" || health_ins == "n"
 	puts "Would you like to enroll in the company’s health insurance? (y/n)"
 	health_ins = gets.chomp
-	if health_ins != "y" || garlic !="n"
+	if health_ins != "y" && health_ins !="n"
 		puts "Please enter 'y' or 'n'"
 		health_ins = gets.chomp
 	end
@@ -54,16 +54,16 @@ puts "Wants Health Insurance? #{health_ins}"
 is_vampire = nil
 
 
-if (age == 2016 - birthyear || age + 1== 2016 - birthyear) && (garlic || health_ins) && !(name == 'Drake Cula' || name == 'Tu Fang')
+if (age == 2016 - birthyear || age + 1== 2016 - birthyear) && (garlic || health_ins) && !(your_name == 'Drake Cula' || your_name == 'Tu Fang')
 	is_vampire = 'Probably not a vampire.'
-elsif !(age == 2016 - birthyear || age + 1 == 2016 - birthyear) && (!garlic && health_ins) || (garlic && !health_ins) && !(name == 'Drake Cula' || name == 'Tu Fang')
+elsif !(age == 2016 - birthyear || age + 1 == 2016 - birthyear) && (!garlic && health_ins) || (garlic && !health_ins) && !(your_name == 'Drake Cula' || your_name == 'Tu Fang')
 	is_vampire = 'Probably a vampire.'
-elsif !(age == 2016 - birthyear || age + 1 == 2016 - birthyear) && (!garlic && !health_ins) && !(name == 'Drake Cula' || name == 'Tu Fang')
+elsif !(age == 2016 - birthyear || age + 1 == 2016 - birthyear) && (!garlic && !health_ins) && !(your_name == 'Drake Cula' || your_name == 'Tu Fang')
 	is_vampire = 'Almost certainly a vampire.'
-elsif name == 'Drake Cula' || name == 'Tu Fang'
+elsif your_name == 'Drake Cula' || your_name == 'Tu Fang'
 	is_vampire = 'Definitely a vampire.'
 else
-	is_vampire = "Results inconclusive"
+	is_vampire = 'Results inconclusive'
 end
 
-puts is_vampire
+puts "RESULT ==> #{is_vampire}"
