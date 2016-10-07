@@ -1,8 +1,8 @@
 to_process = 0
-until age != 0
+until to_process != 0
 	puts "How many employees will be processed?"
 	to_process = gets.chomp.to_i
-	if age == 0
+	if to_process == 0
 		puts "Please enter a valid integer above 0"
 	end
 end
@@ -53,17 +53,26 @@ for i in 1..to_process
 	else
 		health_ins = false
 	end
+	allergy = nil
+	until allergy == "done"
+		puts "List any allergies one by one, type 'done' when finished"
+		allergy = gets.chomp
+		if allergy == "sunshine"
+			break
+		end
+	end
 
 	puts "Name: #{your_name}"
 	puts "Age: #{age}"
 	puts "Birthyear: #{birthyear}"
 	puts "Likes Garlic Bread? #{garlic}"
 	puts "Wants Health Insurance? #{health_ins}"
+	puts "Allergy: #{allergy}"
+	puts ""
 
 	is_vampire = nil
 
-
-	if (age == 2016 - birthyear || age + 1== 2016 - birthyear) && (garlic || health_ins) && !(your_name == 'Drake Cula' || your_name == 'Tu Fang')
+	if (age == 2016 - birthyear || age + 1== 2016 - birthyear) && (garlic || health_ins) && !(your_name == 'Drake Cula' || your_name == 'Tu Fang') && allergy != "sunshine"
 		is_vampire = 'Probably not a vampire.'
 	elsif !(age == 2016 - birthyear || age + 1 == 2016 - birthyear) && (!garlic && health_ins) || (garlic && !health_ins) && !(your_name == 'Drake Cula' || your_name == 'Tu Fang')
 		is_vampire = 'Probably a vampire.'
@@ -75,5 +84,8 @@ for i in 1..to_process
 		is_vampire = 'Results inconclusive'
 	end
 
-	puts "RESULT ==> #{is_vampire}"
+	puts "RESULT: #{is_vampire}"
 end
+
+puts ""
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
