@@ -39,10 +39,16 @@ def interior_design
 	if client[:pets] > 0
 		client[:pet_types] = []
 		puts "What kind of pets do you have? (enter each different kind, 'done' when finished)"
-		until gets.chomp == "done"
-			client[:pet_types] << get.chomp
+		pet_ans = ""
+		until pet_ans == "done"
+			pet_ans = gets.chomp
+			if pet_ans != "done"
+				client[:pet_types] << pet_ans
+			end
 		end
 	end
+	first_pet = client[:pet_types][0]
+	client[:main_pet] = first_pet
 # Get and create key for decor theme
 	client[:theme] = ""
 	until client[:theme] == "rustic" || client[:theme] == "gothic" || client[:theme] == "country"
@@ -77,7 +83,7 @@ def interior_design
 # If so, update key and print hash again
 	if the_key != "none"
 		puts "What would you like to update #{the_key} to?"
-		client[the_key] = gets.chomp
+		client[the_key.to_sym] = gets.chomp
 		p client
 	end
 	puts "Thank you!"
