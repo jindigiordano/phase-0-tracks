@@ -2,7 +2,7 @@ continents = {
 	'antarctica' => {
 		'cities' => [],
 		'animals' => ['penguins', 'polar bears', 'whales'],
-		'cold?' => true
+		'countries' => 0
 	},
 	'north_america' => {
 		'cities' => ['Mexico City', 'New York City', 'Toronto'],
@@ -15,10 +15,8 @@ continents = {
 		'countries' => 48
 	},
 	'planet' => 'Earth',
-	'galaxy' => 'Milky Way',
 	'how_many' => 7,
-	'not_listed' => ['South America', 'Africa', 'Europe', 'Australia'],
-	'edible' => false
+	'not_listed' => ['South America', 'Africa', 'Europe', 'Australia']
 }
 
 sw_movies = [
@@ -35,7 +33,7 @@ sw_movies = [
 	{	'title' => 'return_of_the_jedi',
 		'release' => 1983,
 		'evil_hutt' => "Jabba",
-		'episode' =>6
+		'episode' => 6
 	},
 	['The Phantom Menace', 'Attack of the Clones', 'Revenge of the Sith'],
 	['The Clone Wars Animated', ['The Clone Wars Movie', 'The Clone Wars TV Show']],
