@@ -1,3 +1,4 @@
+
 # Define method to create alias
 def alias_creator(agent_name) 
 	# Array of vowels
@@ -82,15 +83,19 @@ def alias_creator(agent_name)
 	
 	# Concat first and last names to make one string
 	full_alias = alias_f + " " + alias_l
+	
+	# return alias
 	full_alias
+	
 end
 
-
+# Create data structure to store results in
+session = {}
 # Ask user for their full name, prompt "quit" when done
 agent_name = ""
 puts "I can make you aliases for all your secret agents. (Enter 'quit' when done)"
 until agent_name == "quit"
-	puts "Please enter your full name."
+	puts "Please enter the agent's full name."
 	agent_name = gets.chomp
 	# Make sure it's a valid first and last name format
 	if agent_name.split(' ').length != 2 && agent_name != "quit"
@@ -98,8 +103,14 @@ until agent_name == "quit"
 	# check if the user is done
 	elsif agent_name == "quit"
 		puts "Thanks for your service!"
+		# print data structure
+		puts "Here's a summary:"
+		session.each { |agent_name, value| puts "#{value} is really #{agent_name}" }
+		puts ""
 	# Run program if formatted correctly
 	else
+		session[agent_name] = alias_creator(agent_name)
+		# Print alias as you go
 		puts "#{agent_name}'s alias is: #{alias_creator(agent_name)}."
 	end
 end
