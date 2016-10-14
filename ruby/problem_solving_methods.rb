@@ -44,11 +44,11 @@ end
 
 # Pseudocode a sorting method that takes array, returns sorted array
 def my_sorting_method(array)
+	# Run once per item in array
 	array.length.times {
 	# Initialize number of times to loop
 	looped = 0
-	# Set a condition so it's not an infinite loop
-	# Loop only as many times as items in array
+	# Compare item to it's neighbor until its in the right place
 	while looped < array.length
 		# Check if item is greater than it's => neighbor
 		# Edge case for last item you can't compare with => neighbor
@@ -63,9 +63,12 @@ def my_sorting_method(array)
 		looped += 1
 	end
 	}
+	# Return array
 	array
 end
 
+# test array
 arr = [20, -3, -10, -9, -20]
 
+# test call
 p my_sorting_method(arr)
