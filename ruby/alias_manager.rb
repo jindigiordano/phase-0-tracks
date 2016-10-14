@@ -1,3 +1,6 @@
+
+
+
 # Define method to create alias
 def alias_creator(agent_name) 
 	# Array of vowels
@@ -85,4 +88,16 @@ def alias_creator(agent_name)
 	full_alias
 end
 
-p alias_creator('Felicia Torres')
+
+# Ask user for their full name, prompt "quit" when done
+agent_name = ""
+puts "I can make you aliases for all your secret agents. (Enter 'quit' when done)"
+until agent_name == "quit"
+	puts "Please enter your full name."
+	agent_name = gets.chomp
+	if agent_name.split(' ').length != 2
+		puts "Invalid name, plese try again."
+	else
+		puts "#{agent_name}'s alias is: alias_creator(agent_name)."
+	end
+end
