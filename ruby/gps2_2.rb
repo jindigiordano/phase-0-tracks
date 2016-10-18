@@ -81,3 +81,17 @@ add_list(list_hash, "onions", 1)
 add_list(list_hash, "ice cream", 4)
 update_list(list_hash, "ice cream", 1)
 pretty_list(remove_item(list_hash, "lemonade"))
+
+
+# What did you learn about pseudocode from working on this challenge?
+# I learned that pseudocode can really help speed up the process of writing methods, but that also it may have to be updated along the way as you test and refactor and make changes.
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# I used a hash for this challenge, did not use arrays. But I would imagine the tradeoff would be being able to use keys instead of numbers to access items, and also assign quantities to the keys whereas in arrays you would not be able to, you'd probably have to use nested arrays or create multiple ones and try and keep everything straight or search arrays constantly.
+# What does a method return?
+# In Ruby a method returns the last piece of data it processed
+# What kind of things can you pass into methods as arguments?
+# You can pass almost anything, Strings, Integers, Arrays, Hashes, even other methods.
+# How can you pass information between methods?
+# You can pass information between methods by calling a method within a method, or creating global variables that store the return values of previous methods.
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# This challenge solidified my understanding of creating DRY code, that methods should not resemble each other but should be unique. What is still confusing to me is how to make an optional parameter for a method.
