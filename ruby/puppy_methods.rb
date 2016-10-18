@@ -7,3 +7,5 @@ class Puppy
 
 end
 
+pup = Puppy.new
+pup.fetch
