@@ -3,7 +3,7 @@ class Santa
 	attr_accessor :gender, :reindeer_ranking
 
 	def speak
-		puts "Ho, ho ho! Haaaappy holidays!"
+		puts "Ho, ho, ho! Haaaappy holidays!"
 	end
 
 	def eat_milk_and_cookies(cookie_type)
@@ -29,6 +29,19 @@ class Santa
 		@reindeer_ranking.delete_at(i)
 		@reindeer_ranking
 	end
+
+
+	# def age
+	# 	@age
+	# end
+
+	# def ethnicity
+	# 	@ethnicity
+	# end
+
+	# def gender_reassignment(gender)
+	# 	@gender = gender
+	# end
 
 end
 
@@ -59,10 +72,3 @@ santas.each { |i|
 	puts "Ethnicity: #{i.ethnicity}"
 	puts "Reindeer Ranking: #{i.reindeer_ranking}"
 }
-
-# p santas[0].age
-# p santas[0].ethnicity
-# p santas[0].celebrate_birthday
-# p santas[0].get_mad_at("Rudolph")
-# santas[0].gender = "Femme Fatale"
-# p santas[0].gender
