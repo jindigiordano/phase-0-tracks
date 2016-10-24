@@ -7,7 +7,6 @@ class Game
 	def initialize(win_word)
 	# Set winning word
 		@win_word = win_word
-		@win_arr = win_word.split("")
 	# Initialize remaining guesses to win_word length plus 5
 		@remaining_guesses = win_word.length + 5
 	# Initialize array to store past guesses to check for repeats
