@@ -1,6 +1,6 @@
 # Create game class
 class Game
-	attr_reader :win_word, :past_guesses, :hint
+	attr_reader :hint
 	attr_accessor :remaining_guesses
 
 	# User 1 enters word to initialize
