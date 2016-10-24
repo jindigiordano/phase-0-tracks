@@ -55,15 +55,21 @@ class Game
 
 	# User 2 guesses letter in word, or a word
 	def guess(guess)
-		guess
 		# Make sure the guess is either a letter or the whole word
 		if guess.length != 1 && guess.length != @win_word.length
 			p "Guess a letter, or the complete word!"
+		# check for repeated guesses
+		elsif @past_guesses.include? guess
+			p "You guessed that already!"
+			p @remaining_guesses
+			p @hint
 		# check if they guessed the entire word correctly
 		elsif guess == @win_word
 			win
 		# if the letter is not in the word
 		elsif !@win_word.include? guess
+			# Add guess to arrayof past guesses
+			@past_guesses << guess
 			if @remaining_guesses == 1
 				lose
 			else
@@ -73,19 +79,15 @@ class Game
 			end
 		# if the letter is in the word
 		elsif @win_word.include? guess
+			# Add guess to arrayof past guesses
+			@past_guesses << guess
 			guesses_remaining
 			update_hint(guess)
 			p "Nice guess!"
 		else
 			p "Error"
 		end
+
 	end
 
 end
-
-game = Game.new("robot")
-game.guess("p")
-game.guess("o")
-game.guess("r")
-game.guess("b")
-game.guess("t")
