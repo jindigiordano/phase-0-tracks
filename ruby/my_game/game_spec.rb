@@ -3,7 +3,7 @@ require_relative 'game'
 describe Game do
 	let(:new_game) { Game.new("wombat")}
 	# One user can enter a word or phrase, and another user attempts to guess the word.
-	it "checks a guess against the winning word" do
+	it "checks a guessed letter or word to see if it's contained in the winning word" do
 	end
 	# Guesses are limited, and the number of guesses available is related to the length of the word.
 	it "updates and outputs remaining guesses" do
@@ -16,5 +16,7 @@ describe Game do
 	end
 	# Congratulatory message if win, taunting message if lost
 	it "gives a congratularoty message on win, taunting message on loss" do
+		expect(new_game.guess("wombat")).to eq "Congratulations, you win! The word was 'wombat'"
+		expect(new_game.guess("lizard")).to eq "Haha, you couldn't guess it! The word was 'wombat'"
 	end
 end
