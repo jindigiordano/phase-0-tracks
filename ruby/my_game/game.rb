@@ -1,6 +1,6 @@
 # Create game class
 class Game
-	attr_reader :win_word, :past_guesses, :hint
+	attr_reader :hint
 	attr_accessor :remaining_guesses
 
 	# User 1 enters word to initialize
@@ -17,8 +17,9 @@ class Game
 		hint_length = win_word.length
 		hint_length.times { hint = hint + "_ " }
 		@hint = hint
-		p "Guess the word!"
-		p "Here's a hint: #{@hint}"
+		puts "Ok! User 2 please take over."
+		puts "Guess the word!"
+		puts "Here's a hint: #{@hint}"
 	end
 
 	def win
@@ -95,7 +96,16 @@ class Game
 
 end
 
+puts "User 1, enter a word to guess"
+# If we were doing this for real humans, could do:
+# word = gets.chomp
+# game1 = Game.new(word)
 game1 = Game.new("robot")
+# Game prompts user 2 to take over
+# If we were doing this for real humans, could do:
+# letter = gets.chomp
+# game2.guess(letter)
+# and so on...
 game1.guess("cat")
 game1.guess("a")
 game1.guess("e")
@@ -106,7 +116,7 @@ game1.guess("r")
 game1.guess("b")
 game1.guess("t")
 
-
+puts "User 1, enter a word to guess"
 game2 = Game.new("leaf")
 game2.guess("a")
 game2.guess("e")
