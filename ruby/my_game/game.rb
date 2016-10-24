@@ -38,31 +38,28 @@ class Game
 			end
 			char_ind += 1
 		}
-		hint_str = @hint.delete " "
-		#if the hint is filled up, they win
-		if hint_str == @win_word
-			win
-		#else update the status
-		else
-			p @hint
-		end
+		@hint_str = @hint.delete " "
+		#update the status
+		p @hint
 	end
 
 	def guesses_remaining
 			# decrease by one
 			@remaining_guesses -= 1
+
 	end
 
 	# User 2 guesses letter in word, or a word
 	def guess(guess)
 		# Make sure the guess is either a letter or the whole word
 		if guess.length != 1 && guess.length != @win_word.length
+			p @remaining_guesses.to_s + " guesses left"
 			p "Guess a letter, or the complete word!"
 		# check for repeated guesses
 		elsif @past_guesses.include? guess
-			p "You guessed that already!"
-			p @remaining_guesses
+			p @remaining_guesses.to_s + " guesses left"
 			p @hint
+			p "You guessed that already!"
 		# check if they guessed the entire word correctly
 		elsif guess == @win_word
 			win
@@ -74,6 +71,7 @@ class Game
 				lose
 			else
 			guesses_remaining
+			p @remaining_guesses.to_s + " guesses left"
 			p @hint
 			p "Sorry, try again!"
 			end
@@ -82,8 +80,13 @@ class Game
 			# Add guess to arrayof past guesses
 			@past_guesses << guess
 			guesses_remaining
+			p @remaining_guesses.to_s + " guesses left"
 			update_hint(guess)
-			p "Nice guess!"
+			if @hint_str == @win_word
+				win
+			else
+				p "Nice guess!"
+			end
 		else
 			p "Error"
 		end
@@ -91,3 +94,28 @@ class Game
 	end
 
 end
+
+game1 = Game.new("robot")
+game1.guess("cat")
+game1.guess("a")
+game1.guess("e")
+game1.guess("i")
+game1.guess("o")
+game1.guess("r")
+game1.guess("r")
+game1.guess("b")
+game1.guess("t")
+
+
+game2 = Game.new("leaf")
+game2.guess("a")
+game2.guess("e")
+game2.guess("w")
+game2.guess("jar")
+game2.guess("knot")
+game2.guess("w")
+game2.guess("m")
+game2.guess("k")
+game2.guess("b")
+game2.guess("v")
+game2.guess("g")
