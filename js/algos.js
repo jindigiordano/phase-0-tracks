@@ -39,18 +39,15 @@ function createWordArr(length) {
 	//alphabet array
 	var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-	//array of words to pick from
-	//var randomWords = ["a", "be", "the", "yoda", "blast", "bantha", "podrace", "cryonics", "skywalker", "lightsaber"];
 	//initialize array of words to push to and return
 	var finalArray = [];
-	//iterate over the first given number of array items and push to final array
+	//iterate for each word to push to final array
 	for ( i = 0; i < length; i++ ) {
 		//set random word length
 		var wordLength = Math.floor(Math.random() * 10) + 1;
-		//create word of the random length and push to array
-		//initialize word
+		//initialize word to push to array
 		var randomWord = "";
-		//add letters for length of word specified
+		//add letters until length of word specified
 		for ( j = 0; j < wordLength; j++ ) {
 			//add a random letter to randomWord
 			randomWord += alphabet[Math.floor(Math.random() * 25)];
@@ -68,8 +65,6 @@ function createWordArr(length) {
 //10 times
 //generate & print array
 //feed arr to longest word fn and prints
-
-
 times = 0;
 while ( times <= 9) {
 	var createdArray = createWordArr(Math.floor(Math.random() * 9) + 1);
