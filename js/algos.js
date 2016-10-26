@@ -11,7 +11,10 @@ function longestPhrase(arrayPhrases) {
 	return longest;
 }
 
-//console.log(longestPhrase(["long phrase", "longest phrase", "longer phrase"]));
+console.log(longestPhrase(["long phrase", "longest phrase", "longer phrase"]));
+console.log(longestPhrase(["jim", "bob", "humphrey"]));
+console.log(longestPhrase(["do or do not", "nooooo", "may the force be with you"]));
+
 
 // function takes 2 obj and checks if they share key-value pairs
 function keyValMatch(obj1, obj2) {
@@ -28,4 +31,5 @@ function keyValMatch(obj1, obj2) {
 	return false;
 }
 
-console.log(keyValMatch({name: "Steven", age: 50}, {name: "Tamir", age: 54}));
+console.log(keyValMatch({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
+console.log(keyValMatch({name: "Anakin", age: 24}, {name: "Obi Wan", age: 34}));
