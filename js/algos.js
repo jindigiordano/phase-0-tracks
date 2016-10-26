@@ -36,19 +36,27 @@ function keyValMatch(obj1, obj2) {
 
 //function that takes int for length, builds and returns arr of str of length
 function createWordArr(length) {
+	//alphabet array
+	var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
 	//array of words to pick from
-	var randomWords = ["a", "be", "the", "yoda", "blast", "bantha", "podrace", "cryonics", "skywalker", "lightsaber"];
+	//var randomWords = ["a", "be", "the", "yoda", "blast", "bantha", "podrace", "cryonics", "skywalker", "lightsaber"];
 	//initialize array of words to push to and return
 	var finalArray = [];
 	//iterate over the first given number of array items and push to final array
 	for ( i = 0; i < length; i++ ) {
 		//set random word length
 		var wordLength = Math.floor(Math.random() * 10) + 1;
-		//search random word array for word of the random length
-		for ( j = 0; j < randomWords.length; j++ ) {
-			if (randomWords[j].length == wordLength) {
+		//create word of the random length and push to array
+		//initialize word
+		var randomWord = "";
+		//add letters for length of word specified
+		for ( j = 0; j < wordLength; j++ ) {
+			//add a random letter to randomWord
+			randomWord += alphabet[Math.floor(Math.random() * 25)];
+			if (randomWord.length == wordLength) {
 				//push word to final array
-				finalArray.push(randomWords[j]);
+				finalArray.push(randomWord);
 			}
 		}
 	}
