@@ -92,3 +92,18 @@ STATE_DATA.each { |state_name, pop_hash|
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+  # One is bracket notation with a string and => to indicate a key, the other is symbol where the key is indicated with a colon
+
+# What does require_relative do? How is it different from require?
+  # Require relative accesses a file from where it is in relation to the accessor file, require accesses from the absolute path
+
+# What are some ways to iterate through a hash?
+  # You can iterate with the .each method, or by using a for loop with a condition based on the hash length, or a while loop with a condition checking to see if the hash is not empty
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+  # That they were all instance variables so they didn't need to be passed to other instance methods
+
+# What concept did you most solidify in this challenge?
+  # That you don't always need parameters while passing instance arguments and methods around inside of a class. Also how to loop for nested hashes in ruby and create new objects without assigning them to variables.
