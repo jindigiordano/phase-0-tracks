@@ -1,0 +1,14 @@
+sqlite> select * from pets;
+1|Whiskers|3|false|1
+2|Chewie|1|true|2
+3|Mittens|9|true|1
+4|Doge|7|false|2
+5|Hammy|2|false|3
+
+sqlite> update pets set friendly="false" where species_id=1;
+sqlite> select * from pets;
+1|Whiskers|3|false|1
+2|Chewie|1|true|2
+3|Mittens|9|false|1
+4|Doge|7|false|2
+5|Hammy|2|false|3
