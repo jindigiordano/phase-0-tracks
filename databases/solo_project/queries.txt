@@ -38,3 +38,49 @@ sqlite> select * from pets;
 2|Chewie|1|true|2
 3|Mittens|9|false|1
 4|Doge|7|false|2
+
+
+
+
+sqlite> select pets.name, pets.age, pets.friendly, species.name from pets join s
+pecies on pets.species_id = species.id;
+Whiskers|3|false|cat
+Chewie|1|true|dog
+Mittens|9|false|cat
+Doge|7|false|dog
+
+
+sqlite> select * from pets inner join species on pets.species_id = species.id;
+1|Whiskers|3|false|1|1|cat
+2|Chewie|1|true|2|2|dog
+3|Mittens|9|false|1|1|cat
+4|Doge|7|false|2|2|dog
+
+
+sqlite> select * from pets left join species on pets.species_id = species.id;
+1|Whiskers|3|false|1|1|cat
+2|Chewie|1|true|2|2|dog
+3|Mittens|9|false|1|1|cat
+4|Doge|7|false|2|2|dog
+
+
+sqlite> select * from pets right join species on pets.species_id = species.id;
+Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+
+*cartesian join*
+sqlite> select pets.name, species.name from pets, species;
+Whiskers|cat
+Whiskers|dog
+Whiskers|hamster
+Chewie|cat
+Chewie|dog
+Chewie|hamster
+Mittens|cat
+Mittens|dog
+Mittens|hamster
+Doge|cat
+Doge|dog
+Doge|hamster
+
+
