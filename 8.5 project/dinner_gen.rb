@@ -1,9 +1,6 @@
 # Dinner Generator
 # Generates dinner idea with main course, veggies, and fruit
 
-# Object Relational Mapping (ORM)
-# Converting db to object
-
 # require gems
 require 'sqlite3'
 require 'faker'
@@ -12,9 +9,6 @@ require 'faker'
 db = SQLite3::Database.new("dinner.db")
 db.results_as_hash = true
 
-# Fancy string delimiters
-# Don't have to use double or single quotes
-# Same word at beginning and end, caps
 # create tables if not already exist
 
 create_entree_table_cmd = <<-SQL
@@ -109,10 +103,9 @@ end
 
 # Prompt user if they'd like to add a dish or be recommended a meal
 selection = ""
-
-puts "Welcome to the dinner generator."
 until selection == "6"
-
+	puts "------------------------------------------"
+	puts "Welcome to the dinner generator."
 	puts "Select one of the following options:"
 	puts "1 - Generate a random dinner idea for me"
 	puts "2 - View all dishes"
@@ -120,6 +113,7 @@ until selection == "6"
 	puts "4 - View favorites"
 	puts "5 - Update dish/Add to favorites"
 	puts "6 - Exit"
+	puts "------------------------------------------"
 
 	selection = gets.chomp
 
@@ -129,10 +123,13 @@ until selection == "6"
 		# Randomly select from each table using rand and id
 		puts "Here is your randomly generated dinner:"
 		# random entree
+		entree = db.execute("SELECT * FROM entree")
 		entree_id = rand(entree.length.floor + 1)
 		puts "Entree: #{entree[entree_id]['name']}"
+		veggie = db.execute("SELECT * FROM veggie")
 		veggie_id = rand(veggie.length)
 		puts "Veggie: #{veggie[veggie_id]['name']}"
+		fruit = db.execute("SELECT * FROM fruit")
 		fruit_id = rand(fruit.length)
 		puts "Fruit: #{fruit[fruit_id]['name']}"
 
@@ -209,7 +206,7 @@ until selection == "6"
 		dish_type = gets.chomp.downcase
 		puts "Enter the dish ID (integer)"
 		dish_id = gets.chomp.to_i
-		puts "What field would you like to change? (name/submit/favorite)"
+		puts "What field would you like to change? (name/submitted_by/favorite)"
 		field_change = gets.chomp
 		puts "Enter what we should change the field to."
 		new_field = gets.chomp
