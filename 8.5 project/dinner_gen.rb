@@ -9,6 +9,7 @@ require 'faker'
 
 # Create database
 db = SQLite3::Database.new("dinner.db")
+db.results_as_hash = true
 
 # Fancy string delimiters
 # Don't have to use double or single quotes
@@ -26,7 +27,21 @@ SQL
 db.execute(create_table_cmd)
 
 # add a test dinner
-db.execute("INSERT INTO dinner (ingredient, quantity) values ('tomatoes', 2)")
-# explore ORM by retreving data
+# db.execute("INSERT INTO dinner (ingredient, quantity) values ('tomatoes', 2)")
 
 # create lots of dinners
+
+def create_dinner(db, ingredient, quantity)
+	db.execute("INSERT INTO dinner (ingredient, quantity) values (?, ?)", [ingredient, quantity])
+end
+
+10.times do
+	create_dinner(db, Faker::Name.name, 0)
+end
+
+
+# explore ORM by retreving data
+dinner = db.execute("SELECT * FROM dinner")
+dinner.each do |dinner|
+	puts "Use #{dinner['quantity']} #{dinner['ingredient']}"
+end
