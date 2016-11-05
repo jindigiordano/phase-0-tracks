@@ -16,33 +16,39 @@ db.results_as_hash = true
 # Same word at beginning and end, caps
 # create a dinner table if not already there
 
-create_table_cmd = <<-SQL
+create_dish_table_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS dish(
 		id INTEGER PRIMARY KEY,
 		name VARCHAR(255),
 		dish_type VARCHAR(255)
-	);
+	)
+SQL
+create_meal_table_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS meal(
 		id INTEGER PRIMARY KEY,
 		name VARCHAR(255),
-		entree_id VARCHAR(255),
-		side_id VARCHAR(255),
-		dessert_id VARCHAR(255),
+		entree_id INT,
+		side_id INT,
+		dessert_id INT,
 		FOREIGN KEY (entree_id) REFERENCES dish(id),
 		FOREIGN KEY (side_id) REFERENCES dish(id),
 		FOREIGN KEY (dessert_id) REFERENCES dish(id)
-	);
+	)
+SQL
+create_dinner_table_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS dinner(
 		id INTEGER PRIMARY KEY,
-		date VARCHAR(255),
-		host VARCHAR(255),
+		day_of_week INT,
+		invite VARCHAR(255),
 		num_ppl INT,
 		meal_id INT,
 		FOREIGN KEY (meal_id) REFERENCES meal(id)
-	);
+	)
 SQL
 
-db.execute(create_table_cmd)
+db.execute(create_dish_table_cmd)
+db.execute(create_meal_table_cmd)
+db.execute(create_dinner_table_cmd)
 
 # add dishes to dish table
 db.execute("INSERT INTO dish (name, dish_type) values ('Honey BBQ Ribs', 'entree')")
@@ -62,25 +68,24 @@ db.execute("INSERT INTO meal (name, entree_id, side_id, dessert_id) values ('Ita
 db.execute("INSERT INTO meal (name, entree_id, side_id, dessert_id) values ('Fusion Dinner', 1, 5, 9)")
 
 # add dinners
-db.execute("INSERT INTO dinner (date, host, num_ppl, meal_id) values (?, ?, 4, ?)")
+# db.execute("INSERT INTO dinner (date, host, num_ppl, meal_id) values (?, ?, ?, ?)")
 
 # create lots of dinners
 
-def create_dinner(db, date, host, num_ppl, meal_id)
-	db.execute("INSERT INTO dinner (date, host, num_ppl, meal_id) values (?, ?, ?, ?)", [date, host, num_ppl, meal_id])
+def create_dinner(db, days_ago, invite, num_ppl, meal_id)
+	db.execute("INSERT INTO dinner (day_of_week, invite, num_ppl, meal_id) values (?, ?, ?, ?)", [days_ago, invite, num_ppl, meal_id])
 end
 
-10.times do
-	create_dinner(db, Faker::Date.backward(150), Faker::Name.name, 4, (1 + rand(4)))
-end
+# 7.times { |day_of_week|
+#	create_dinner(db, (day_of_week + 1), Faker::Name.name, (1 + rand(12)), (1 + rand(4)))
+# }
 
 
 # explore ORM by retreving data
 dinner = db.execute("SELECT * FROM dinner")
+p dinner;
 dinner.each do |dinner|
-	puts "#{dinner['host']} cooked #{dinner['meal']} for #{dinner['num_ppl']} on #{dinner['date']}."
+	puts "On day #{dinner['day_of_week']} of this week, I suggest cooking #{dinner['meal_id']} for #{dinner['num_ppl']} people and inviting #{dinner['invite']}."
 end
-
-
 
 
