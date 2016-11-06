@@ -117,6 +117,12 @@ until selection == "6"
 
 	selection = gets.chomp
 
+	# validate user input
+	while selection.to_i > 6 && selection.to_i < 1
+		puts "Please enter a valid number between 1 and 6"
+		selection = gets.chomp
+	end
+
 	case selection
 	when "1"
 		# Generate random dinner
@@ -145,6 +151,12 @@ until selection == "6"
 		dish_submitter = gets.chomp
 		puts "Is this dish a favorite of yours? (y/n)"
 		dish_fav = gets.chomp
+		#validate user input
+		until dish_fav == 'y' || dish_fav == 'n'
+			puts "Please enter 'y' or 'n'"
+			dish_fav = gets.chomp
+		end
+		# set booleans based on user input
 		if dish_fav == "y"
 			fav_bool = "true"
 		else
@@ -153,9 +165,13 @@ until selection == "6"
 		# prompt for what kind of dish
 		puts "Is this dish an entree, veggie, or fruit?"
 		dish_type = gets.chomp
-
-		case dish_type.downcase
+		# validate user input
+		until dish_type.downcase == 'entree' || dish_type.downcase == 'veggie' || dish_type.downcase == 'fruit'
+			puts "Please enter 'entree', 'veggie' or 'fruit'"
+			dish_type = gets.chomp
+		end
 		# add to appropriate table
+		case dish_type.downcase
 		when "entree"
 			add_entree(db, dish_name, dish_submitter, fav_bool)
 			puts "Thank you, your entree has been added!"
@@ -203,18 +219,36 @@ until selection == "6"
 		puts "Here's the dishes we have so far:"
 		print_all(db)
 		puts "Enter the type of dish you'd like to change (entree/veggie/fruit)"
-		dish_type = gets.chomp.downcase
+		dish_type = gets.chomp
+		# validate user input
+		until dish_type.downcase == 'entree' || dish_type.downcase == 'veggie' || dish_type.downcase == 'fruit'
+			puts "Please enter 'entree', 'veggie' or 'fruit'"
+			dish_type = gets.chomp
+		end
 		puts "Enter the dish ID (integer)"
 		dish_id = gets.chomp.to_i
+		# validate user input
+		until dish_id > 0 && dish_id <= dish_type.length
+			puts "Please enter valid id"
+			dish_id = gets.chomp.to_i
+		end
 		puts "What field would you like to change? (name/submitted_by/favorite)"
 		field_change = gets.chomp
+		# validate user input
+		until field_change.downcase == 'name' || field_change.downcase == 'submitted_by' || field_change.downcase == 'favorite'
+			puts "Please enter 'name', 'submitted_by' or 'favorite'"
+			field_change = gets.chomp
+		end
 		puts "Enter what we should change the field to."
 		new_field = gets.chomp
+		# execute change query
 		db.execute("UPDATE #{dish_type} SET #{field_change}='#{new_field}' WHERE id=#{dish_id}")
 		puts "Thanks! Here's the updated item:"
+		# print updated item
 		updated_item = db.execute("SELECT * FROM #{dish_type} WHERE id=#{dish_id}")
 		puts "#{updated_item[0]['id']} - #{updated_item[0]['name']}, Submitted by: #{updated_item[0]['submitted_by']}, Fav?: #{updated_item[0]['favorite']}"
 	when "6"
+		# end message
 		puts "Thanks, happy eating!"
 	end
 end
