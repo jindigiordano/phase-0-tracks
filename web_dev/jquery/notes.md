@@ -12,3 +12,7 @@
 # Practice the Thing
 * Do a few challenges
 * Create your own project
+
+# Report
+* researching just the definition did little
+* W3Schools was amazing, even had examples
