@@ -52,3 +52,10 @@ end
 get '/contact' do
 	"<p>123 Fake Street<br />Springville, OH 55555</p>"
 end
+
+# Great job route
+
+get '/great_job/:name' do
+	name = params[:name]
+	"Good job, #{name}!"
+end
