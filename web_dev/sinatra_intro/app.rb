@@ -55,7 +55,12 @@ end
 
 # Great job route
 
-get '/great_job/:name' do
+get '/great_job/' do
 	name = params[:name]
-	"Good job, #{name}!"
+
+	if name
+		"Good job, #{name}!"
+	else
+		"Good job!"
+	end
 end
